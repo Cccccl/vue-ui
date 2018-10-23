@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue ui</title>
+    <style>
+        *{margin: 0;padding: 0; box-sizing: border-box;}
+        :root{
+            --button-height: 32px;
+            --button-bg: #0066ff;
+            --button-hover-bg: #3385ff;
+            --button-active-bg: #005ce6;
+            --font-size: 14px;
+            --line-height: 14px;
+            --border-radius: 4px;
+            --color: #ffffff;
+            --border-color: #fff;
+            --border-color-hover: #fff;
+        }
+    </style>
+    <style>
+        #root{
+            margin: 20px;
+        }
+        body{
+            font-size: var(--font-size);
+        }
+        .ccc1l-button{
+            font-size: var(--font-size);
+            height: var(--button-height);
+            padding: 0 1em;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background: var(--button-bg);
+            color: var(--color);
+        }
+        .ccc1l-button:hover{
+            background-color: var(--button-hover-bg);
+        }
+        .ccc1l-button:active{
+            background-color: var(--button-active-bg);
+        }
+        .ccc1l-button:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <ccc1l-button></ccc1l-button>
+    </div>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script src="./button.js"></script>
+    <script>
+        new Vue({
+            el: '#root'
+        })
+    </script>
+</body>
+</html>
