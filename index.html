@@ -8,6 +8,12 @@
     <title>vue ui</title>
     <style>
         *{margin: 0;padding: 0; box-sizing: border-box;}
+        #root{
+            margin: 20px;
+        }
+        body{
+            font-size: var(--font-size);
+        }
         :root{
             --button-height: 32px;
             --button-bg: #0066ff;
@@ -21,43 +27,11 @@
             --border-color-hover: #fff;
         }
     </style>
-    <style>
-        #root{
-            margin: 20px;
-        }
-        body{
-            font-size: var(--font-size);
-        }
-        .ccc1l-button{
-            font-size: var(--font-size);
-            height: var(--button-height);
-            padding: 0 1em;
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            background: var(--button-bg);
-            color: var(--color);
-        }
-        .ccc1l-button:hover{
-            background-color: var(--button-hover-bg);
-        }
-        .ccc1l-button:active{
-            background-color: var(--button-active-bg);
-        }
-        .ccc1l-button:focus{
-            outline: none;
-        }
-    </style>
 </head>
 <body>
     <div id="root">
         <ccc1l-button></ccc1l-button>
     </div>
-    <script src="./node_modules/vue/dist/vue.min.js"></script>
-    <script src="./button.js"></script>
-    <script>
-        new Vue({
-            el: '#root'
-        })
-    </script>
+    <script src="./app.js"></script>
 </body>
 </html>
