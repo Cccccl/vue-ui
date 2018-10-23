@@ -2,3 +2,4 @@ resources
 dist
 node_modules
 note.md
+.cache
