@@ -7,14 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vue ui</title>
     <style>
-        *{margin: 0;padding: 0; box-sizing: border-box;}
-        #root{
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #root {
             margin: 20px;
         }
-        body{
+
+        body {
             font-size: var(--font-size);
         }
-        :root{
+
+        :root {
             --button-height: 32px;
             --button-bg: #0066ff;
             --button-hover-bg: #3385ff;
@@ -29,9 +36,15 @@
     </style>
 </head>
 <body>
-    <div id="root">
-        <ccc1l-button></ccc1l-button>
-    </div>
-    <script src="./app.js"></script>
+<div id="root">
+    <ccc1l-button icon="refresh">
+        行动按钮
+    </ccc1l-button>
+    <ccc1l-button>
+        行动按钮
+    </ccc1l-button>
+</div>
+<script src="//at.alicdn.com/t/font_890334_kqnmuypbs6p.js"></script>
+<script src="./app.js"></script>
 </body>
 </html>

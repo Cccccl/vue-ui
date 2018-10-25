@@ -1,9 +1,19 @@
 <template>
-    <button class="ccc1l-button">行动按钮</button>
+    <button class="ccc1l-button">
+        <svg class="icon" v-if="icon">
+            <use :xlink:href=`#c-${icon}`></use>
+        </svg>
+        <slot></slot>
+    </button>
 </template>
 <script>
 export default {
-    name: 'ccc1l-button'
+    name: 'ccc1l-button',
+    props: {
+        icon: {
+            type: String
+        }
+    }
 }
 </script>
 <style lang="scss">
@@ -15,6 +25,10 @@ export default {
     border: 1px solid var(--border-color);
     background: var(--button-bg);
     color: var(--color);
+    .icon {
+        width: 1em;
+        height: 1em;
+    }
     &:hover{
         background-color: var(--button-hover-bg);
     }
