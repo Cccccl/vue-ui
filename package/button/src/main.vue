@@ -1,7 +1,6 @@
 <template>
-    <button class="ccc1l-button" :class="{[`icon-${iconPosition}`]: true}">
+    <button class="ccc1l-button" :class="iconPositionClass">
         <ccc1l-icon :name="icon"></ccc1l-icon>
-        <ccc1l-icon name="refresh" class="loading"></ccc1l-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -19,6 +18,15 @@ export default {
             default: 'left',
             validator (value){
                 return !(value !== 'left' && value !== 'right')
+            }
+        }
+    },
+    computed: {
+        iconPositionClass: function () {
+            if (this.icon) {
+                return `icon-${this.iconPosition}`
+            } else {
+                return ''
             }
         }
     }
@@ -47,12 +55,14 @@ export default {
     &:focus{
         outline: none;
     }
-    >.ccc1l-icon{
-        order: 1;
-        margin: 0 0.3em 0 0;
-    }
-    >.content{
-        order: 2;
+    &.icon-left{
+        >.ccc1l-icon{
+            order: 1;
+            margin: 0 0.3em 0 0;
+        }
+        >.content{
+            order: 2;
+        }
     }
     &.icon-right{
         >.ccc1l-icon{
@@ -63,12 +73,5 @@ export default {
             order: 1;
         }
     }
-    .loading{
-        animation: spin 2s infinite linear;
-    }
 }
-    @keyframes spin {
-        0% {transform: rotate(0deg)}
-        100% {transform: rotate(360deg)}
-    }
 </style>
