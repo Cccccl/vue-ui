@@ -1,8 +1,6 @@
 <template>
     <button class="ccc1l-button" :class="{[`icon-${iconPosition}`]: true}">
-        <svg class="icon" v-if="icon">
-            <use :xlink:href=`#c-${icon}`></use>
-        </svg>
+        <ccc1l-icon :name="icon"></ccc1l-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -38,10 +36,7 @@ export default {
     justify-content: center;
     align-items: center;
     vertical-align: top;
-    .icon {
-        width: 1em;
-        height: 1em;
-    }
+
     &:hover{
         background-color: var(--button-hover-bg);
     }
