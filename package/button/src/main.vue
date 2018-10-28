@@ -1,9 +1,11 @@
 <template>
-    <button class="ccc1l-button">
+    <button class="ccc1l-button" :class="{[`icon-${iconPosition}`]: true}">
         <svg class="icon" v-if="icon">
             <use :xlink:href=`#c-${icon}`></use>
         </svg>
-        <slot></slot>
+        <div class="content">
+            <slot></slot>
+        </div>
     </button>
 </template>
 <script>
@@ -12,6 +14,10 @@ export default {
     props: {
         icon: {
             type: String
+        },
+        iconPosition: {
+            type: String,
+            default: 'left'
         }
     }
 }
@@ -25,6 +31,10 @@ export default {
     border: 1px solid var(--border-color);
     background: var(--button-bg);
     color: var(--color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
     .icon {
         width: 1em;
         height: 1em;
@@ -37,6 +47,22 @@ export default {
     }
     &:focus{
         outline: none;
+    }
+    >.icon{
+        order: 1;
+        margin: 0 0.3em 0 0;
+    }
+    >.content{
+        order: 2;
+    }
+    &.icon-right{
+        >.icon{
+            order: 2;
+            margin: 0 0 0 0.3em;
+        }
+        >.content{
+            order: 1;
+        }
     }
 }
 </style>
