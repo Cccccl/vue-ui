@@ -1,6 +1,7 @@
 <template>
     <button class="ccc1l-button" :class="{[`icon-${iconPosition}`]: true}">
         <ccc1l-icon :name="icon"></ccc1l-icon>
+        <ccc1l-icon name="refresh" class="loading"></ccc1l-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -46,7 +47,7 @@ export default {
     &:focus{
         outline: none;
     }
-    >.icon{
+    >.ccc1l-icon{
         order: 1;
         margin: 0 0.3em 0 0;
     }
@@ -54,7 +55,7 @@ export default {
         order: 2;
     }
     &.icon-right{
-        >.icon{
+        >.ccc1l-icon{
             order: 2;
             margin: 0 0 0 0.3em;
         }
@@ -62,5 +63,12 @@ export default {
             order: 1;
         }
     }
+    .loading{
+        animation: spin 2s infinite linear;
+    }
 }
+    @keyframes spin {
+        0% {transform: rotate(0deg)}
+        100% {transform: rotate(360deg)}
+    }
 </style>
