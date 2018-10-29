@@ -5,7 +5,14 @@
 </template>
 <script>
 export default {
-    name: 'ccc1lButtonGroup'
+    name: 'ccc1lButtonGroup',
+    mounted (){
+        for (let node of this.$el.children) {
+            if (node.nodeName.toLowerCase() !== 'button') {
+                console.warn(`ccc1l-button-group的子元素应该是ccc1l-button,但是你写的是${node.nodeName.toLowerCase()}`)
+            }
+        }
+    }
 }
 </script>
 <style lang="scss">

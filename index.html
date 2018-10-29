@@ -32,7 +32,7 @@
             --border-radius: 4px;
             --color: #ffffff;
             --border-color: #fff;
-            --border-color-hover: red;
+            --border-color-hover: #fff;
         }
     </style>
 </head>
@@ -41,7 +41,7 @@
     <ccc1l-button icon="download" icon-position="right">
         行动按钮
     </ccc1l-button>
-    <ccc1l-button icon="download" :loading="true">
+    <ccc1l-button icon="download" :loading="loading.b" @wait="waitHandle">
         行动按钮
     </ccc1l-button>
     <ccc1l-button>

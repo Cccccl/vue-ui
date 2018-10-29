@@ -1,7 +1,7 @@
 <template>
     <button class="ccc1l-button" :class="iconPositionClass" @click="toggle">
-        <ccc1l-icon :name="icon" v-if="!buttonState"></ccc1l-icon>
-        <ccc1l-icon name="refresh" v-if="buttonState"></ccc1l-icon>
+        <ccc1l-icon :name="icon" v-if="!loading"></ccc1l-icon>
+        <ccc1l-icon name="refresh" v-if="loading"></ccc1l-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -26,11 +26,6 @@ export default {
             }
         }
     },
-    data: function () {
-        return {
-            buttonState: null
-        }
-    },
     computed: {
         iconPositionClass: function () {
             if (this.icon) {
@@ -40,15 +35,9 @@ export default {
             }
         }
     },
-    mounted: function () {
-        this.init()
-    },
     methods: {
-        init: function () {
-            this.buttonState = this.loading
-        },
         toggle: function () {
-            this.buttonState = !this.buttonState
+            this.$emit('wait')
         }
     }
 }

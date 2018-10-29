@@ -6,5 +6,19 @@ Vue.component(Button.name, Button);
 Vue.component(Icon.name, Icon);
 Vue.component(ButtonGroup.name, ButtonGroup);
 new Vue({
-    el: '#root'
+    el: '#root',
+    data: function () {
+        return {
+            loading: {
+                a: true,
+                b: true,
+                c: false
+            }
+        }
+    },
+    methods: {
+        waitHandle: function () {
+            this.loading.b = !this.loading.b
+        }
+    }
 });
