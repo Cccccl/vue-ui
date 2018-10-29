@@ -1,6 +1,7 @@
 <template>
-    <button class="ccc1l-button" :class="iconPositionClass">
-        <ccc1l-icon :name="icon"></ccc1l-icon>
+    <button class="ccc1l-button" :class="iconPositionClass" @click="toggle">
+        <ccc1l-icon :name="icon" v-if="!buttonState"></ccc1l-icon>
+        <ccc1l-icon name="refresh" v-if="buttonState"></ccc1l-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -13,12 +14,21 @@ export default {
         icon: {
             type: String
         },
+        loading: {
+           type: Boolean,
+           default: false
+        },
         iconPosition: {
             type: String,
             default: 'left',
             validator (value){
                 return !(value !== 'left' && value !== 'right')
             }
+        }
+    },
+    data: function () {
+        return {
+            buttonState: null
         }
     },
     computed: {
@@ -28,6 +38,17 @@ export default {
             } else {
                 return ''
             }
+        }
+    },
+    mounted: function () {
+        this.init()
+    },
+    methods: {
+        init: function () {
+            this.buttonState = this.loading
+        },
+        toggle: function () {
+            this.buttonState = !this.buttonState
         }
     }
 }
@@ -55,14 +76,12 @@ export default {
     &:focus{
         outline: none;
     }
-    &.icon-left{
-        >.ccc1l-icon{
-            order: 1;
-            margin: 0 0.3em 0 0;
-        }
-        >.content{
-            order: 2;
-        }
+    .ccc1l-icon{
+        order: 1;
+        margin: 0 0.3em 0 0;
+    }
+    .content{
+        order: 2;
     }
     &.icon-right{
         >.ccc1l-icon{
