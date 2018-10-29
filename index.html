@@ -15,6 +15,7 @@
 
         #root {
             margin: 20px;
+            font-size: 0;
         }
 
         body {
@@ -31,7 +32,7 @@
             --border-radius: 4px;
             --color: #ffffff;
             --border-color: #fff;
-            --border-color-hover: #fff;
+            --border-color-hover: red;
         }
     </style>
 </head>
@@ -46,6 +47,11 @@
     <ccc1l-button>
         行动按钮
     </ccc1l-button>
+    <ccc1l-button-group>
+        <ccc1l-button icon="left">上一页</ccc1l-button>
+        <ccc1l-button>更多</ccc1l-button>
+        <ccc1l-button icon="right" icon-position="right">下一页</ccc1l-button>
+    </ccc1l-button-group>
 </div>
 <script src="//at.alicdn.com/t/font_890334_q4pfm3irgf.js"></script>
 <script src="./app.js"></script>
