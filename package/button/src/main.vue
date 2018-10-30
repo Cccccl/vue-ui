@@ -8,8 +8,10 @@
     </button>
 </template>
 <script>
+    import Icon from '../../icon'
 export default {
     name: 'ccc1l-button',
+    components: {'ccc1l-icon': Icon},
     props: {
         icon: {
             type: String
