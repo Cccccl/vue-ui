@@ -9,11 +9,7 @@ export default {
     props: ['name'],
     computed: {
         loadingClass: function () {
-            if (this.name === 'refresh') {
-                return 'loading'
-            } else {
-                return ''
-            }
+            return this.name === 'loading' ? 'loading' : ''
         }
     }
 }
@@ -25,7 +21,7 @@ export default {
         fill: white;
     }
     .loading{
-        animation: spin 4s infinite linear;
+        animation: spin 2s infinite linear;
     }
     @keyframes spin {
         0% {transform: rotate(0deg)}

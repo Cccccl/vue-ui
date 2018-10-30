@@ -1,7 +1,7 @@
 <template>
     <button class="ccc1l-button" :class="iconPositionClass" @click="toggle">
         <ccc1l-icon :name="icon" v-if="!loading"></ccc1l-icon>
-        <ccc1l-icon name="refresh" v-if="loading"></ccc1l-icon>
+        <ccc1l-icon name="loading" v-if="loading"></ccc1l-icon>
         <div class="content">
             <slot></slot>
         </div>

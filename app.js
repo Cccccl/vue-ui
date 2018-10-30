@@ -26,3 +26,81 @@ new Vue({
 });
 
 // 单元测试
+import chai from 'chai'
+const expect = chai.expect;
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'upload'
+        }
+    });
+    vm.$mount();
+    let useElement = vm.$el.querySelector('use');
+    let href = useElement.getAttribute('xlink:href');
+    expect(href).to.eq('#c-upload');
+    vm.$el.remove();
+    vm.$destroy()
+}
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'upload',
+            loading: true
+        }
+    });
+    vm.$mount();
+    let useElement = vm.$el.querySelector('use');
+    let href = useElement.getAttribute('xlink:href');
+    expect(href).to.eq('#c-loading');
+    vm.$el.remove();
+    vm.$destroy()
+}
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'upload'
+        }
+    });
+    vm.$mount();
+    document.getElementById('root').appendChild(vm.$el);
+    let svgElement = vm.$el.querySelector('svg');
+    let {order} = window.getComputedStyle(svgElement);
+    expect(order).to.eq('1');
+    vm.$el.remove();
+    vm.$destroy()
+}
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'upload',
+            iconPosition: 'right'
+        }
+    });
+    vm.$mount();
+    document.getElementById('root').appendChild(vm.$el);
+    let svgElement = vm.$el.querySelector('svg');
+    let {order} = window.getComputedStyle(svgElement);
+    expect(order).to.eq('2');
+    vm.$el.remove();
+    vm.$destroy()
+}
+{
+    // 希望这个函数被执行，需要使用到mock
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'upload'
+        }
+    });
+    vm.$mount();
+    vm.$on('wait', function (){
+        console.log(1)
+    });
+    vm.$el.click();
+    vm.$el.remove();
+    vm.$destroy()
+}
